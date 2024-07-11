@@ -1,3 +1,21 @@
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Middleware
+app.use(express.urlencoded({ extended: true }));
+
+// Route
+const userRoutes = require("./controllers/user.controller");
+app.use("/auth", userRoutes);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 require("dotenv").config();
 const express = require("express");
 const app = express();
