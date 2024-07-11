@@ -1,25 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 // Load environment variables from .env file
 dotenv.config();
 
-const app = express();
-
 // Middleware
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Database connection
-const mongoURL = process.env.DB_URL + process.env.DBNAME;
-mongoose
-  .connect(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MongoDB connected..."))
-  .catch((err) => console.log(err));
 
 // Route
 const userRoutes = require("./controllers/user.controller");
@@ -31,9 +16,27 @@ app.use((err, req, res, next) => {
   res.status(500).send("Something broke!");
 });
 
-// Start server
-const HOST = "127.0.0.1";
-const PORT = 3000;
-app.listen(PORT, HOST, () => {
-  console.log(`Server running on http://${HOST}:${PORT}`);
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const roomController = require("./controllers/room.controllers");
+
+const mongoose = require("mongoose");
+
+const PORT = process.env.PORT;
+const DBNAME = process.env.DBNAME;
+const DB_URL = process.env.DB_URL;
+
+mongoose.connect(DB_URL + DBNAME);
+const db = mongoose.connection;
+db.once("open", () => {
+  console.log("connected to the DB", DBNAME);
+});
+
+app.use(express.json());
+
+app.use("/room", roomController);
+
+app.listen(PORT, () => {
+  console.log(`server is running on port: ${PORT}`);
 });
