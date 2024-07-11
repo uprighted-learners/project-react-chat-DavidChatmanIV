@@ -22,7 +22,7 @@ mongoose
   .catch((err) => console.log(err));
 
 // Route
-const userRoutes = require("./user.controller");
+const userRoutes = require("./controllers/user.controller");
 app.use("/auth", userRoutes);
 
 // Error handling middleware

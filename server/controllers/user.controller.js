@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("./models/user.model");
+const User = require("../models/user.model");
 
 // Retrieve SALT and JWT_KEY from environment variables
 const SALT = parseInt(process.env.SALT); // Convert to integer
