@@ -3,24 +3,25 @@ const mongoose = require("mongoose");
 // message schema referencing User and Room Ids
 
 const MessagesSchema = new mongoose.Schema(
-{
+  {
     when: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
     body: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
-    ownerId: {
-        type: mongoose.Types.ObjectId,
-        ref: "user",
-    },
-    roomId: {
-        type: mongoose.Types.ObjectId,
-        ref: "room",
-    },
+  //   user: {
+  //     type: mongoose.Types.ObjectId,
+  //     required: true,
+  //       ref: "user",
+  //   },
+  //   roomId: {
+  //     type: mongoose.Types.ObjectId,
+  //     ref: "room",
+  //   },
   },
   { when: true }
 );
