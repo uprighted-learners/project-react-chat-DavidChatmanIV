@@ -5,7 +5,7 @@ const User = require("../models/user.model");
 
 // Retrieve SALT and JWT_KEY from environment variables
 const SALT = parseInt(process.env.SALT); // Convert to integer
-const JWT_KEY = process.env.JWT_KEY;
+const JWT_KEY = process.env.JWT_SECRET;
 
 // Route for user signup
 router.post("/signup", async (req, res) => {
