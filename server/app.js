@@ -21,6 +21,7 @@ const express = require("express");
 const app = express();
 const roomController = require("./controllers/room.controllers");
 const messagesController = require("./controllers/messages.controller");
+const userController = require("./controllers/user.controller");
 
 const mongoose = require("mongoose");
 
@@ -37,6 +38,10 @@ db.once("open", () => {
 app.use(express.json());
 
 app.use("/room", roomController);
+
+app.use("/messages", messagesController);
+
+app.use("/user", userController);
 
 app.listen(PORT, () => {
   console.log(`server is running on port: ${PORT}`);
