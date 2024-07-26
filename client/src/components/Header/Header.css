@@ -1,0 +1,21 @@
+.header h1 {
+  font-size: 30px;
+  padding: 2px;
+  color: whitesmoke;
+  margin: 3px;
+}
+.header {
+  display: grid;
+  grid-template-rows: auto auto;
+  align-items: center;
+  font-family: cursive;
+  background-color: rgb(8, 7, 7);
+}
+.header p {
+  font-size: 10px;
+  color: whitesmoke;
+  margin: 5px;
+  padding: 3px;
+  justify-self: start;
+  background-color: midnightblue
+}

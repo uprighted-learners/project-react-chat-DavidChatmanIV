@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Signup from "./Signup";
 import Login from "./Login";
+import "./Auth.css"
 
 const Auth = ({ onTokenUpdate }) => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
     <>
-      <h1>Please login or sign up to access the rooms</h1>
+      <h2 className="prompt">Please login or sign up to access the rooms</h2>
       {isLogin ? (
         <Login onTokenUpdate={onTokenUpdate} />
       ) : (

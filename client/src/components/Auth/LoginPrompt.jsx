@@ -10,7 +10,7 @@ const LoginPrompt = () => {
 
   return (
     <>
-      <h2>You need to log in to access this page</h2>
+      <h2>You must login or sign up to access this page</h2>
       <button onClick={handleLoginRedirect}>Go to Login</button>
     </>
   );
