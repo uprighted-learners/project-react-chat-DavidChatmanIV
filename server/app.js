@@ -19,6 +19,7 @@ app.use((err, req, res, next) => {
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const roomController = require("./controllers/room.controllers");
 const messagesController = require("./controllers/messages.controller");
 const userController = require("./controllers/user.controller");
@@ -36,6 +37,8 @@ db.once("open", () => {
 });
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use("/room", roomController);
 
