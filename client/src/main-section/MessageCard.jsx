@@ -1,23 +1,19 @@
-import MessageFeed from "/MessageFeed";
+import React from "react";
 
-function MessageCard(props) {
-  console.log(props.isAdmin);
+const MessageCard = (props) => {
   return (
-    <>
-      {props.MessageCardItems.map((message, user, roomId, when) => (
-        <MessageCard
-          key={user}
-          message={message}
-          room={roomId}
-          when={when}
-          token={props.token}
-          fetchMessageFeed={props.fetchMessageFeed}
-          userId={props.user}
-          isAdmin={props.isAdmin}
-        />
-      ))}
-    </>
+    <div className="message-card">
+      <div className="message-header">
+        <span>
+          <strong>{props.message.user.username}</strong> ({props.message.when})
+        </span>
+      </div>
+
+      <div className="message-body">
+        <p>{props.message.body}</p>
+      </div>
+    </div>
   );
-}
+};
 
 export default MessageCard;
