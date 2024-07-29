@@ -1,18 +1,23 @@
-import React from "react";
+import { Card, CardBody, CardTitle, CardText } from "reactstrap";
 
 const MessageCard = (props) => {
-  return (
-    <div className="message-card">
-      <div className="message-header">
-        <span>
-          <strong>{props.message.user.username}</strong> ({props.message.when})
-        </span>
-      </div>
+  console.log(props);
+  const { user, body, when, roomId } = props.message;
+  // console.log(props)
 
-      <div className="message-body">
-        <p>{props.message.body}</p>
-      </div>
-    </div>
+  return (
+    
+      <Card color={white}>
+      <CardBody>
+        <CardTitle tag ="h4">{when}</CardTitle>
+
+        <CardText>{body}</CardText>
+
+        <p>Posted by: {user.name}</p>
+
+        {roomId && <p>Room: {roomId.name}</p>}
+      </CardBody>
+    </Card>
   );
 };
 
