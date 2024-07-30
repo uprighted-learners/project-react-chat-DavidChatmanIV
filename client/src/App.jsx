@@ -7,7 +7,7 @@ import LoginPrompt from "./components/Auth/LoginPrompt";
 
 function App() {
   //token functionality put into App for ease of use for other members of the team
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, setToken] = useState("");
   const location = useLocation(); // grabbing location
 
   const handleTokenUpdate = (newToken) => {
@@ -28,6 +28,7 @@ function App() {
           path="/auth"
           element={<Auth onTokenUpdate={handleTokenUpdate} />}
         />
+        <Route path="/feed" element={<MainIndex token={token} />} />
       </Routes>
       {token ? (
         <MainIndex token={token} />
