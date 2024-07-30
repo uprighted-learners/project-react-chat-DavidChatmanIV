@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, CardHeader } from "reactstrap";
-import MessageFeed from "./MessageFeed";
+import MessageFeed from ("./MessageFeed");
 import { API_MESSAGE_VIEW_ALL } from "../../Constants/endpoints";
 
 function MainIndex(props) {
