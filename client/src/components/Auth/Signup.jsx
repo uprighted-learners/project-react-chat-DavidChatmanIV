@@ -36,7 +36,7 @@ const Signup = ({ onTokenUpdate }) => {
       const data = await response.json();
       onTokenUpdate(data.token);
       setError("");
-      navigate('/');
+      navigate('/');// sends you back to the main page
     } catch (error) {
       setError(error.message);
     }
@@ -68,7 +68,7 @@ const Signup = ({ onTokenUpdate }) => {
         placeholder="Password"
         onChange={handleChange}
       />
-      <button type="submit">Sign Up</button>
+      <button type="submit" className="submit">Sign Up</button>
       {error && <p>{error}</p>}
     </form>
   );

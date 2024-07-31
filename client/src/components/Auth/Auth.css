@@ -1,0 +1,11 @@
+.prompt{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.submit{
+    font-size: 15px;
+    margin-left: 10px;
+}
+input{
+    margin-left: 5px;
+}
