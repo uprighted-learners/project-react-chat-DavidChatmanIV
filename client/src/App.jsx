@@ -4,7 +4,11 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import MainIndex from "./components/Main/MainIndex";
 import "./App.css";
 import LoginPrompt from "./components/Auth/LoginPrompt";
+
+import RoomMessages from "./components/RoomMessages/roomMessages";
+
 import Header from "./components/Header/Header";
+
 
 function App() {
   //token functionality put into App for ease of use for other members of the team
@@ -31,6 +35,7 @@ function App() {
           element={<Auth onTokenUpdate={handleTokenUpdate} />}
         />
         <Route path="/feed" element={<MainIndex token={token} />} />
+        <Route path="/feed/:id" element={<RoomMessages token={token} />} />
       </Routes>
       {token ? (
         <MainIndex token={token} />
